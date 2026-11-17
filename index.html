@@ -59,6 +59,9 @@ a{color:var(--accent);text-underline-offset:3px}
 .out ul{margin:.4rem 0 .8rem;padding:0;list-style:none;max-width:76ch}
 .out ul li{padding-left:2ch;text-indent:-2ch;margin-bottom:.3rem}
 .out ul li::before{content:"- ";color:var(--accent)}
+.out mark{background:var(--accent);color:var(--term);font-weight:700;padding:.05rem .5ch;border-radius:3px}
+.out pre.grep{margin:0 0 .7rem;padding:.6rem 1.5ch;font:inherit;white-space:pre-wrap;background:var(--soft);border-left:2px solid var(--accent);border-radius:0 4px 4px 0;max-width:72ch}
+.tag{display:inline-block;font-size:.8em;color:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:0 .6ch;margin-right:.6ch}
 .muted{color:var(--muted)}
 .warn{color:var(--warn)}
 .err{color:var(--err)}
@@ -107,6 +110,7 @@ noscript .out{padding:1rem}
         <h1>Jean Austin Rodriguez</h1>
         <p>Senior IT Officer and Data Protection Officer · Manama, Bahrain</p>
         <p>I lead innovation and the responsible use of data and technology at Euro University of Bahrain, with 20+ years of experience in infrastructure, security and teams that deliver.</p>
+        <p>Open-source advocate and credited Mozilla Firefox contributor: <a href="https://www.mozilla.org/credits/#:~:text=Jean%20Austin%20Rodriguez" rel="noopener">see my name on Mozilla's Our Contributors page</a>.</p>
         <p class="muted">This page is an interactive terminal and needs JavaScript. You can still reach me here:</p>
         <p><a href="https://www.linkedin.com/in/jadrodriguez" rel="noopener">LinkedIn</a> · <a href="mailto:jadrodriguez@outlook.com">Email</a> · <a href="https://about.me/jadrodriguez" rel="noopener">About.me</a></p>
       </div>
@@ -123,6 +127,7 @@ noscript .out{padding:1rem}
     <button type="button" data-cmd="help">help</button>
     <button type="button" data-cmd="about">about</button>
     <button type="button" data-cmd="focus">focus</button>
+    <button type="button" data-cmd="opensource">opensource</button>
     <button type="button" data-cmd="experience">experience</button>
     <button type="button" data-cmd="education">education</button>
     <button type="button" data-cmd="contact">contact</button>
@@ -138,7 +143,9 @@ noscript .out{padding:1rem}
 const LINKS = {
   linkedin: "https://www.linkedin.com/in/jadrodriguez",
   email: "mailto:jadrodriguez@outlook.com",
-  aboutme: "https://about.me/jadrodriguez"
+  aboutme: "https://about.me/jadrodriguez",
+  // The text fragment makes the browser scroll to and highlight the name on Mozilla's page.
+  mozilla: "https://www.mozilla.org/credits/#:~:text=Jean%20Austin%20Rodriguez"
 };
 
 const JOBS = [
@@ -220,11 +227,12 @@ const HELP = [
   ["whoami", "Who this is, in one line"],
   ["about", "Short bio"],
   ["focus", "What I focus on"],
+  ["opensource", "Open-source advocacy and Mozilla Firefox contribution"],
   ["experience", "Recent roles (add a number or --all for highlights)"],
   ["earlier", "Earlier roles, 2004 – 2021"],
   ["education", "Education, certifications, languages"],
   ["contact", "How to reach me"],
-  ["open &lt;name&gt;", "Open linkedin, email or aboutme"],
+  ["open &lt;name&gt;", "Open linkedin, email, aboutme or mozilla"],
   ["theme", "List colour themes, or switch with theme &lt;name&gt;"],
   ["ls / cat", "Browse the same content as files"],
   ["history", "Commands you have run"],
@@ -232,7 +240,7 @@ const HELP = [
 ];
 
 const FILES = {
-  "about.txt": "about", "focus.txt": "focus", "experience.log": "experience --all",
+  "about.txt": "about", "focus.txt": "focus", "opensource.txt": "opensource", "experience.log": "experience --all",
   "earlier-roles.log": "earlier", "education.txt": "education", "contact.txt": "contact"
 };
 
@@ -245,13 +253,25 @@ const commands = {
   whoami: () => `
     <h1>Jean Austin Rodriguez</h1>
     <p>Senior IT Officer and Data Protection Officer · Manama, Bahrain</p>
-    <p class="muted">I lead innovation and the responsible use of data and technology at Euro University of Bahrain, with 20+ years of experience in infrastructure, security and teams that deliver.</p>`,
+    <p class="muted">I lead innovation and the responsible use of data and technology at Euro University of Bahrain, with 20+ years of experience in infrastructure, security and teams that deliver.</p>
+    <p><span class="tag">open source</span> Open-source advocate and credited Mozilla Firefox contributor → ${run("opensource")}</p>`,
+
+  opensource: () => `
+    <h2>Open source</h2>
+    <p>I'm an open-source advocate. I believe software that anyone can inspect, improve and share makes technology more trustworthy and more accessible, and I bring that thinking to the systems and teams I work with.</p>
+    <h3>Mozilla Firefox contributor</h3>
+    <p class="muted">I contributed to Mozilla Firefox, and Mozilla credits me by name on its Our Contributors page, which thanks the people "whose efforts over many years have made this software what it is."</p>
+    <pre class="grep"><span class="muted">$ curl -s mozilla.org/credits | grep -i rodriguez</span>
+<mark>Jean Austin Rodriguez</mark></pre>
+    <p>${ext(LINKS.mozilla, "See my name on Mozilla's Our Contributors page ↗")} <span class="muted">or run</span> ${run("open mozilla")}</p>
+    <p class="muted">The link jumps to my name and highlights it. If your browser doesn't, search the page for "Jean Austin Rodriguez".</p>`,
 
   about: () => `
     <h2>About</h2>
     <p>I'm a technology leader focused on digital transformation and high-impact infrastructure, with a track record of building high-performing teams in higher education. I started in technical support in 2004 and have since worked across universities, telecoms, consulting, manufacturing and research.</p>
     <p>Today I own IT service delivery at Euro University of Bahrain, advise executive leadership on IT investment, and act as the university's Data Protection Officer. I also build AI tools that help leaders make decisions and help the admissions team reach students.</p>
-    <p class="muted">Next: ${run("focus")} or ${run("experience")}</p>`,
+    <p>I'm also an open-source advocate and a credited contributor to Mozilla Firefox.</p>
+    <p class="muted">Next: ${run("focus")}, ${run("opensource")} or ${run("experience")}</p>`,
 
   focus: () => `
     <h2>What I focus on</h2>
@@ -304,10 +324,10 @@ const commands = {
   open: args => {
     const key = (args[0] || "").toLowerCase().replace(/[^a-z]/g, "");
     const href = LINKS[key];
-    if (!href) return `<p class="err">open: choose one of linkedin, email, aboutme</p>`;
+    if (!href) return `<p class="err">open: choose one of linkedin, email, aboutme, mozilla</p>`;
     if (href.startsWith("mailto:")) location.href = href;
     else window.open(href, "_blank", "noopener");
-    return `<p>Opening ${key}… <span class="muted">If nothing happened:</span> ${ext(href, href.replace(/^mailto:|^https:\/\//, ""))}</p>`;
+    return `<p>Opening ${key}… <span class="muted">If nothing happened:</span> ${ext(href, href.replace(/^mailto:|^https:\/\/|#.*$/g, ""))}</p>`;
   },
 
   theme: args => {
@@ -345,9 +365,9 @@ const commands = {
   exit: () => `<p class="muted">There is no escape, but thanks for visiting. Try ${run("contact")} before you go.</p>`,
   clear: () => { out.replaceChildren(); return null; }
 };
-const ALIASES = { "?": "help", man: "help", bio: "about", work: "experience", exp: "experience", jobs: "experience",
+const ALIASES = { "?": "help", man: "help", bio: "about", oss: "opensource", "open-source": "opensource", mozilla: "opensource", firefox: "opensource", work: "experience", exp: "experience", jobs: "experience",
   edu: "education", certs: "education", email: "contact", linkedin: "contact", cls: "clear", dir: "ls", ll: "ls" };
-const VISIBLE = ["help", "whoami", "about", "focus", "experience", "earlier", "education", "contact", "open", "theme", "ls", "cat", "history", "clear"];
+const VISIBLE = ["help", "whoami", "about", "focus", "opensource", "experience", "earlier", "education", "contact", "open", "theme", "ls", "cat", "history", "clear"];
 
 /* ---------- terminal ---------- */
 const out = document.getElementById("out");
@@ -479,7 +499,7 @@ document.addEventListener("click", e => {
 });
 
 /* ---------- boot ---------- */
-const HASH = { themes: "theme", about: "about", focus: "focus", experience: "experience", education: "education", contact: "contact" };
+const HASH = { themes: "theme", opensource: "opensource", about: "about", focus: "focus", experience: "experience", education: "education", contact: "contact" };
 
 async function boot() {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
