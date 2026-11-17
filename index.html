@@ -112,7 +112,7 @@ noscript .out{padding:1rem}
         <p>I lead innovation and the responsible use of data and technology at Euro University of Bahrain, with 20+ years of experience in infrastructure, security and teams that deliver.</p>
         <p>Open-source advocate and credited Mozilla Firefox contributor: <a href="https://www.mozilla.org/credits/#:~:text=Jean%20Austin%20Rodriguez" rel="noopener">see my name on Mozilla's Our Contributors page</a>.</p>
         <p class="muted">This page is an interactive terminal and needs JavaScript. You can still reach me here:</p>
-        <p><a href="https://www.linkedin.com/in/jadrodriguez" rel="noopener">LinkedIn</a> · <a href="mailto:jadrodriguez@outlook.com">Email</a> · <a href="https://about.me/jadrodriguez" rel="noopener">About.me</a></p>
+        <p><a href="https://www.linkedin.com/in/jadrodriguez" rel="noopener">LinkedIn</a></p>
       </div>
     </noscript>
 
@@ -142,8 +142,6 @@ noscript .out{padding:1rem}
 /* ---------- content ---------- */
 const LINKS = {
   linkedin: "https://www.linkedin.com/in/jadrodriguez",
-  email: "mailto:jadrodriguez@outlook.com",
-  aboutme: "https://about.me/jadrodriguez",
   // The text fragment makes the browser scroll to and highlight the name on Mozilla's page.
   mozilla: "https://www.mozilla.org/credits/#:~:text=Jean%20Austin%20Rodriguez"
 };
@@ -232,7 +230,7 @@ const HELP = [
   ["earlier", "Earlier roles, 2004 – 2021"],
   ["education", "Education, certifications, languages"],
   ["contact", "How to reach me"],
-  ["open &lt;name&gt;", "Open linkedin, email, aboutme or mozilla"],
+  ["open &lt;name&gt;", "Open linkedin or mozilla"],
   ["theme", "List colour themes, or switch with theme &lt;name&gt;"],
   ["ls / cat", "Browse the same content as files"],
   ["history", "Commands you have run"],
@@ -306,7 +304,7 @@ const commands = {
     <h3>Education</h3>
     <p class="muted">B.S. in Information Technology, Computer Science<br>Colegio de San Juan de Letran Calamba, 2000 – 2004</p>
     <h3>Certifications</h3>
-    ${list(["VMware Certified Associate – Data Center", "VMware Certified Associate – Cloud", "CloudU", "Google Prompting Essentials", "Google Ads for Beginners"])}
+    ${list(["Personal Data Protection Guardian license", "Cloud Computing Law: Data Protection and Cybersecurity certificate", "AI Fluency &amp; Framework"])}
     <h3>Languages</h3>
     <p class="muted">Filipino (native or bilingual)<br>English (full professional)</p>
     <h3>Honors</h3>
@@ -314,20 +312,17 @@ const commands = {
 
   contact: () => `
     <h2>Contact</h2>
-    <p>The quickest way to reach me is LinkedIn or email.</p>
+    <p>The quickest way to reach me is LinkedIn.</p>
     <dl class="grid">
       <dt>linkedin</dt><dd>${ext(LINKS.linkedin, "linkedin.com/in/jadrodriguez")}</dd>
-      <dt>email</dt><dd>${ext(LINKS.email, "jadrodriguez@outlook.com")}</dd>
-      <dt>aboutme</dt><dd>${ext(LINKS.aboutme, "about.me/jadrodriguez")}</dd>
     </dl>`,
 
   open: args => {
     const key = (args[0] || "").toLowerCase().replace(/[^a-z]/g, "");
     const href = LINKS[key];
-    if (!href) return `<p class="err">open: choose one of linkedin, email, aboutme, mozilla</p>`;
-    if (href.startsWith("mailto:")) location.href = href;
-    else window.open(href, "_blank", "noopener");
-    return `<p>Opening ${key}… <span class="muted">If nothing happened:</span> ${ext(href, href.replace(/^mailto:|^https:\/\/|#.*$/g, ""))}</p>`;
+    if (!href) return `<p class="err">open: choose one of linkedin, mozilla</p>`;
+    window.open(href, "_blank", "noopener");
+    return `<p>Opening ${key}… <span class="muted">If nothing happened:</span> ${ext(href, href.replace(/^https:\/\/|#.*$/g, ""))}</p>`;
   },
 
   theme: args => {
@@ -366,7 +361,7 @@ const commands = {
   clear: () => { out.replaceChildren(); return null; }
 };
 const ALIASES = { "?": "help", man: "help", bio: "about", oss: "opensource", "open-source": "opensource", mozilla: "opensource", firefox: "opensource", work: "experience", exp: "experience", jobs: "experience",
-  edu: "education", certs: "education", email: "contact", linkedin: "contact", cls: "clear", dir: "ls", ll: "ls" };
+  edu: "education", certs: "education", linkedin: "contact", cls: "clear", dir: "ls", ll: "ls" };
 const VISIBLE = ["help", "whoami", "about", "focus", "opensource", "experience", "earlier", "education", "contact", "open", "theme", "ls", "cat", "history", "clear"];
 
 /* ---------- terminal ---------- */
