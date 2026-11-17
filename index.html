@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0B1114">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#070C0E">
+<script>try{var t=localStorage.getItem("term-theme");if(t&&/^[a-z-]+$/.test(t))document.documentElement.dataset.theme=t}catch(e){}</script>
 <title>Jean Austin Rodriguez – Senior IT Officer & Data Protection Officer, Bahrain</title>
 <meta name="description" content="Jean Austin Rodriguez is a technology leader with 20+ years of experience, currently Senior IT Officer and Data Protection Officer at Euro University of Bahrain.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
@@ -14,22 +15,32 @@
   color-scheme:dark;
   --bg:#070C0E; --term:#0D1518; --bar:#142024; --ink:#D5E4DF; --muted:#8AA09B; --line:#22343A;
   --accent:#70D2C1; --prompt:#9BE28A; --warn:#E8C06A; --err:#F08A7B; --soft:#16292B;
+  --shadow:0 24px 70px rgba(0,0,0,.55);
   --mono:"JetBrains Mono",ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
 }
+/* Themes: the default above is "midnight". Add a block here and a row in THEMES (script) to add another. */
+:root[data-theme="dracula"]{--bg:#191A21;--term:#282A36;--bar:#21222C;--ink:#F8F8F2;--muted:#9CA3C4;--line:#44475A;--accent:#BD93F9;--prompt:#50FA7B;--warn:#F1FA8C;--err:#FF6E6E;--soft:#343746}
+:root[data-theme="nord"]{--bg:#242933;--term:#2E3440;--bar:#3B4252;--ink:#D8DEE9;--muted:#A3ADC2;--line:#4C566A;--accent:#88C0D0;--prompt:#A3BE8C;--warn:#EBCB8B;--err:#E08A93;--soft:#3B4252}
+:root[data-theme="gruvbox"]{--bg:#1D2021;--term:#282828;--bar:#32302F;--ink:#EBDBB2;--muted:#A89984;--line:#504945;--accent:#83A598;--prompt:#B8BB26;--warn:#FABD2F;--err:#FB4934;--soft:#3C3836}
+:root[data-theme="monokai"]{--bg:#1B1C18;--term:#272822;--bar:#1E1F1C;--ink:#F8F8F2;--muted:#A59F85;--line:#49483E;--accent:#66D9EF;--prompt:#A6E22E;--warn:#E6DB74;--err:#FF4F8B;--soft:#3E3D32}
+:root[data-theme="one-dark"]{--bg:#1E2127;--term:#282C34;--bar:#21252B;--ink:#ABB2BF;--muted:#8B93A1;--line:#3E4451;--accent:#61AFEF;--prompt:#98C379;--warn:#E5C07B;--err:#E06C75;--soft:#2C313A}
+:root[data-theme="solarized-light"]{color-scheme:light;--bg:#E4DDC8;--term:#FDF6E3;--bar:#EEE8D5;--ink:#405B63;--muted:#5F757D;--line:#D3CBB7;--accent:#1A6FB0;--prompt:#5F7000;--warn:#8A6800;--err:#C9302C;--soft:#EEE8D5;--shadow:0 24px 70px rgba(70,60,30,.22)}
+:root[data-theme="github-light"]{color-scheme:light;--bg:#EAEEF2;--term:#FFFFFF;--bar:#F6F8FA;--ink:#1F2328;--muted:#59636E;--line:#D1D9E0;--accent:#0969DA;--prompt:#1A7F37;--warn:#9A6700;--err:#CF222E;--soft:#DDF4FF;--shadow:0 24px 70px rgba(31,35,40,.18)}
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;display:grid;place-items:center;height:100vh;height:100dvh;padding:clamp(1rem,7vh,4.5rem) clamp(1rem,6vw,5rem);background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:.95rem;line-height:1.6}
 a{color:var(--accent);text-underline-offset:3px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
 
-.term{display:flex;flex-direction:column;width:100%;max-width:60rem;height:100%;max-height:46rem;overflow:hidden;background:var(--term);border:1px solid var(--line);border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+.term{display:flex;flex-direction:column;width:100%;max-width:60rem;height:100%;max-height:46rem;overflow:hidden;background:var(--term);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}
 .bar{flex:none;display:flex;align-items:center;gap:.75rem;padding:.6rem .9rem;background:var(--bar);border-bottom:1px solid var(--line);color:var(--muted);font-size:.8rem}
 .dots{display:flex;gap:.4rem}
 .dots i{width:.7rem;height:.7rem;border-radius:50%;background:#F08A7B}
 .dots i:nth-child(2){background:#E8C06A}
 .dots i:nth-child(3){background:#9BE28A}
 .bar .title{flex:1;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.bar .spacer{width:2.9rem}
+.bar select{flex:none;max-width:9.5rem;font:inherit;font-size:.75rem;color:var(--muted);background:var(--term);border:1px solid var(--line);border-radius:4px;padding:.15rem .3rem;cursor:pointer}
+.bar select:hover{color:var(--accent);border-color:var(--accent)}
 
 .screen{flex:1;min-height:0;overflow-y:auto;padding:1rem 1rem 1.5rem;cursor:text;scrollbar-color:var(--line) transparent}
 .entry{margin:0 0 1rem}
@@ -81,10 +92,11 @@ noscript .out{padding:1rem}
 </head>
 <body>
 <div class="term">
-  <div class="bar" aria-hidden="true">
-    <span class="dots"><i></i><i></i><i></i></span>
-    <span class="title">visitor@jean-rodriguez: ~</span>
-    <span class="spacer"></span>
+  <div class="bar">
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="title" aria-hidden="true">visitor@jean-rodriguez: ~</span>
+    <label class="sr-only" for="theme">Theme</label>
+    <select id="theme"></select>
   </div>
 
   <main class="screen" id="screen">
@@ -164,6 +176,32 @@ const EARLIER = [
   ["2004", "Technical Support Representative, TeleTech", "First-level support for US telecommunications clients."]
 ];
 
+const THEMES = [
+  ["midnight", "Midnight", "dark"],
+  ["dracula", "Dracula", "dark"],
+  ["nord", "Nord", "dark"],
+  ["gruvbox", "Gruvbox Dark", "dark"],
+  ["monokai", "Monokai", "dark"],
+  ["one-dark", "One Dark", "dark"],
+  ["solarized-light", "Solarized Light", "light"],
+  ["github-light", "GitHub Light", "light"]
+];
+const themeSelect = document.getElementById("theme");
+themeSelect.innerHTML = THEMES.map(([id, label]) => `<option value="${id}">${label}</option>`).join("");
+const currentTheme = () => document.documentElement.dataset.theme || "midnight";
+
+function setTheme(id, save = true) {
+  if (!THEMES.some(t => t[0] === id)) id = "midnight";
+  if (id === "midnight") delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = id;
+  themeSelect.value = id;
+  document.querySelector('meta[name="theme-color"]').content =
+    getComputedStyle(document.documentElement).getPropertyValue("--bg").trim();
+  if (save) { try { localStorage.setItem("term-theme", id); } catch (e) { /* private mode */ } }
+}
+setTheme(currentTheme(), false);
+themeSelect.addEventListener("change", () => setTheme(themeSelect.value));
+
 /* ---------- helpers ---------- */
 const run = c => `<button type="button" class="cmd" data-cmd="${c}">${c}</button>`;
 const ext = (href, text) => `<a href="${href}" rel="noopener"${href.startsWith("http") ? ' target="_blank"' : ""}>${text}</a>`;
@@ -187,6 +225,7 @@ const HELP = [
   ["education", "Education, certifications, languages"],
   ["contact", "How to reach me"],
   ["open &lt;name&gt;", "Open linkedin, email or aboutme"],
+  ["theme", "List colour themes, or switch with theme &lt;name&gt;"],
   ["ls / cat", "Browse the same content as files"],
   ["history", "Commands you have run"],
   ["clear", "Clear the screen (Ctrl+L)"]
@@ -271,6 +310,20 @@ const commands = {
     return `<p>Opening ${key}… <span class="muted">If nothing happened:</span> ${ext(href, href.replace(/^mailto:|^https:\/\//, ""))}</p>`;
   },
 
+  theme: args => {
+    const want = (args[0] || "").toLowerCase();
+    if (!want) {
+      return `<h2>Themes</h2>
+        <dl class="grid">${THEMES.map(([id, label, kind]) =>
+          `<dt>${run("theme " + id)}</dt><dd>${label} <span class="muted">· ${kind}${id === currentTheme() ? " · current" : ""}</span></dd>`).join("")}</dl>
+        <p class="muted">Your choice is remembered on this device.</p>`;
+    }
+    const hit = THEMES.find(t => t[0] === want);
+    if (!hit) return `<p class="err">theme: ${escapeHtml(args[0])}: no such theme. Try ${run("theme")}</p>`;
+    setTheme(hit[0]);
+    return `<p>Theme set to ${hit[1]}.</p>`;
+  },
+
   ls: () => `<div class="cols">${Object.keys(FILES).map(f => run("cat " + f)).join("")}</div>`,
 
   cat: args => {
@@ -294,7 +347,7 @@ const commands = {
 };
 const ALIASES = { "?": "help", man: "help", bio: "about", work: "experience", exp: "experience", jobs: "experience",
   edu: "education", certs: "education", email: "contact", linkedin: "contact", cls: "clear", dir: "ls", ll: "ls" };
-const VISIBLE = ["help", "whoami", "about", "focus", "experience", "earlier", "education", "contact", "open", "ls", "cat", "history", "clear"];
+const VISIBLE = ["help", "whoami", "about", "focus", "experience", "earlier", "education", "contact", "open", "theme", "ls", "cat", "history", "clear"];
 
 /* ---------- terminal ---------- */
 const out = document.getElementById("out");
@@ -359,6 +412,7 @@ function complete() {
     const head = parts[0].toLowerCase();
     pool = head === "cat" ? Object.keys(FILES)
          : head === "open" ? Object.keys(LINKS)
+         : head === "theme" ? THEMES.map(t => t[0])
          : ["experience", "exp", "work", "jobs"].includes(head) ? ["--all", ...JOBS.map((_, i) => String(i + 1))]
          : [];
     stem = parts[parts.length - 1];
@@ -419,13 +473,13 @@ document.addEventListener("click", e => {
     return;
   }
   // Clicking empty terminal space focuses the prompt, without breaking text selection.
-  if (e.target.closest(".screen") && !e.target.closest("a,button,input") && !String(getSelection())) {
+  if (e.target.closest(".screen") && !e.target.closest("a,button,input,select") && !String(getSelection())) {
     input.focus({ preventScroll: true });
   }
 });
 
 /* ---------- boot ---------- */
-const HASH = { about: "about", focus: "focus", experience: "experience", education: "education", contact: "contact" };
+const HASH = { themes: "theme", about: "about", focus: "focus", experience: "experience", education: "education", contact: "contact" };
 
 async function boot() {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
