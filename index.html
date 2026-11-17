@@ -3,282 +3,462 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B1114">
 <title>Jean Austin Rodriguez – Senior IT Officer & Data Protection Officer, Bahrain</title>
 <meta name="description" content="Jean Austin Rodriguez is a technology leader with 20+ years of experience, currently Senior IT Officer and Data Protection Officer at Euro University of Bahrain.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  color-scheme:light;
-  --bg:#F3F6F5; --surface:#FFFFFF; --ink:#172A30; --muted:#5C7075; --line:#D7E1DE;
-  --accent:#087E78; --accent-ink:#FFFFFF; --soft-accent:#E3F2EF; --shadow:0 12px 32px rgba(19,48,48,.06);
-  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root{color-scheme:dark;--bg:#101B1D;--surface:#182729;--ink:#EAF1EE;--muted:#A6B8B4;--line:#304345;--accent:#70D2C1;--accent-ink:#10201F;--soft-accent:#203B38;--shadow:0 12px 32px rgba(0,0,0,.16)}
-}
-:root[data-theme="light"]{
-  color-scheme:light;--bg:#F3F6F5;--surface:#FFFFFF;--ink:#172A30;--muted:#5C7075;--line:#D7E1DE;--accent:#087E78;--accent-ink:#FFFFFF;--soft-accent:#E3F2EF;--shadow:0 12px 32px rgba(19,48,48,.06)
-}
-:root[data-theme="dark"]{
-  color-scheme:dark;--bg:#101B1D;--surface:#182729;--ink:#EAF1EE;--muted:#A6B8B4;--line:#304345;--accent:#70D2C1;--accent-ink:#10201F;--soft-accent:#203B38;--shadow:0 12px 32px rgba(0,0,0,.16)
+  color-scheme:dark;
+  --bg:#070C0E; --term:#0D1518; --bar:#142024; --ink:#D5E4DF; --muted:#8AA09B; --line:#22343A;
+  --accent:#70D2C1; --prompt:#9BE28A; --warn:#E8C06A; --err:#F08A7B; --soft:#16292B;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:6rem}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1rem;line-height:1.65}
+html,body{height:100%}
+body{margin:0;display:grid;place-items:center;height:100vh;height:100dvh;padding:clamp(1rem,7vh,4.5rem) clamp(1rem,6vw,5rem);background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:.95rem;line-height:1.6}
 a{color:var(--accent);text-underline-offset:3px}
-a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:76rem;margin:0 auto;padding:0 1.5rem}
-header.site{position:sticky;top:0;z-index:2;display:grid;gap:.75rem;padding:.9rem 0;background:var(--bg);border-bottom:1px solid var(--line);font-family:var(--head);font-size:.9rem}
-.site-top{display:flex;justify-content:space-between;align-items:center;gap:1rem}
-.site-top strong{font-size:1rem}
-header.site nav{display:flex;gap:.2rem;flex-wrap:wrap}
-header.site a{color:var(--muted);text-decoration:none;padding:.35rem .45rem;border-radius:999px;font-size:.85rem}
-header.site a:hover,header.site a:focus-visible{color:var(--accent);background:var(--soft-accent)}
-.theme-toggle{flex:none;padding:.45rem .7rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}
-.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
-.hero{padding:2.75rem 0 2.5rem;border-bottom:1px solid var(--line)}
-.hero h1{font-family:var(--head);font-weight:700;font-size:clamp(3rem,8vw,6.25rem);line-height:.94;letter-spacing:-.045em;margin:0 0 1.25rem}
-.hero .lede{font-size:clamp(1.1rem,2vw,1.3rem);line-height:1.6;max-width:48rem;margin:0 0 1.6rem;color:var(--muted)}
-.hero .role{display:inline-flex;font-family:var(--head);color:var(--accent);background:var(--soft-accent);margin:0 0 1rem;padding:.35rem .7rem;border-radius:999px;font-size:.9rem}
-.btns{display:flex;gap:.75rem;flex-wrap:wrap}
-.btn{font-family:var(--head);font-weight:500;text-decoration:none;padding:.7rem .8rem;border-radius:8px;border:1px solid var(--accent);display:inline-block}
-.btn.primary{background:var(--accent);color:var(--accent-ink)}
-.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-section{padding:3.5rem 0;border-bottom:1px solid var(--line);scroll-margin-top:6rem}
-section:last-of-type{border-bottom:0}
-h2{font-family:var(--head);font-weight:700;font-size:clamp(1.6rem,3vw,2rem);letter-spacing:-.02em;margin:0 0 1.25rem}
-h3{font-family:var(--head);font-weight:500;font-size:1.15rem;margin:0 0 .25rem}
-p{margin:0 0 1rem}
-.focus{display:grid;gap:1rem}
-.focus div{padding:1.25rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
-.focus h3{margin-bottom:.55rem}
-.focus p{margin:0;color:var(--muted)}
-.timeline{list-style:none;margin:0;padding:0;display:grid;gap:.85rem}
-.timeline>li{padding:1.25rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
-.when{font-family:var(--head);font-size:.9rem;color:var(--muted);margin:0 0 .35rem}
-.place{color:var(--muted);margin:0 0 .6rem}
-.timeline ul,.timeline .plain{margin:.75rem 0 0;padding-left:1.2rem}
-.timeline li li{padding:0 0 .45rem}
-.timeline ul ul{list-style:disc}
-.timeline details{margin-top:.8rem}
-.timeline summary,details>summary{font-family:var(--head);cursor:pointer;color:var(--accent);font-size:.95rem}
-.timeline details[open] summary{margin-bottom:.65rem}
-details .open-label{display:none}
-details[open] .closed-label{display:none}
-details[open] .open-label{display:inline}
-details{margin-top:1.25rem}
-.earlier{margin-top:1rem}
-.earlier>li{box-shadow:none;background:transparent;border:0;border-left:2px solid var(--line);border-radius:0;padding:.1rem 0 1rem 1rem}
-.earlier p{margin:0;color:var(--muted)}
-.facts{display:grid;gap:1rem}
-.facts>div{padding:1.25rem;background:var(--surface);border:1px solid var(--line);border-radius:12px}
-.facts ul{margin:0;padding-left:1.1rem}
-.contact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.5rem;box-shadow:var(--shadow)}
-.contact p{color:var(--muted)}
-.contact-links{display:flex;gap:.6rem;flex-wrap:wrap}
-.contact-links a{padding:.45rem .7rem;border:1px solid var(--line);border-radius:8px;text-decoration:none}
-.contact-links a:hover{border-color:var(--accent);background:var(--soft-accent)}
-footer{padding:2rem 0 3rem;color:var(--muted);font-family:var(--head);font-size:.9rem}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media (min-width:40rem){.focus{grid-template-columns:repeat(3,1fr)}.facts{grid-template-columns:1fr 1fr}}
-@media (min-width:52rem){header.site{grid-template-columns:auto 1fr auto;align-items:center}header.site nav{justify-content:center;flex-wrap:nowrap}.hero{padding:5.5rem 0 4rem}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+
+.term{display:flex;flex-direction:column;width:100%;max-width:60rem;height:100%;max-height:46rem;overflow:hidden;background:var(--term);border:1px solid var(--line);border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+.bar{flex:none;display:flex;align-items:center;gap:.75rem;padding:.6rem .9rem;background:var(--bar);border-bottom:1px solid var(--line);color:var(--muted);font-size:.8rem}
+.dots{display:flex;gap:.4rem}
+.dots i{width:.7rem;height:.7rem;border-radius:50%;background:#F08A7B}
+.dots i:nth-child(2){background:#E8C06A}
+.dots i:nth-child(3){background:#9BE28A}
+.bar .title{flex:1;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.bar .spacer{width:2.9rem}
+
+.screen{flex:1;min-height:0;overflow-y:auto;padding:1rem 1rem 1.5rem;cursor:text;scrollbar-color:var(--line) transparent}
+.entry{margin:0 0 1rem}
+.line{display:flex;gap:.6ch;align-items:baseline;flex-wrap:nowrap}
+.ps1{flex:none;white-space:nowrap;color:var(--prompt)}
+.ps1 .path{color:var(--accent)}
+.ps1 .sym{color:var(--ink)}
+.typed{white-space:pre-wrap;overflow-wrap:anywhere;min-width:0}
+.out{margin:.35rem 0 0;overflow-wrap:anywhere}
+.out p{margin:0 0 .7rem;max-width:72ch}
+.out p:last-child{margin-bottom:0}
+.out h1{font-size:clamp(1.5rem,5vw,2.4rem);line-height:1.15;margin:0 0 .4rem;color:var(--accent);font-weight:700;letter-spacing:-.02em}
+.out h2{font-size:1rem;margin:0 0 .5rem;color:var(--accent);font-weight:700}
+.out h2::before{content:"## ";color:var(--muted)}
+.out h3{font-size:.95rem;margin:0;color:var(--ink);font-weight:700}
+.out ul{margin:.4rem 0 .8rem;padding:0;list-style:none;max-width:76ch}
+.out ul li{padding-left:2ch;text-indent:-2ch;margin-bottom:.3rem}
+.out ul li::before{content:"- ";color:var(--accent)}
+.muted{color:var(--muted)}
+.warn{color:var(--warn)}
+.err{color:var(--err)}
+.job{margin:0 0 .9rem;padding-left:1.5ch;border-left:2px solid var(--line)}
+.job.now{border-left-color:var(--accent)}
+.job p{margin:0}
+.grid{display:grid;grid-template-columns:max-content 1fr;gap:.15rem 2ch;margin:0 0 .7rem}
+.grid dt{color:var(--accent)}
+.grid dd{margin:0;color:var(--ink)}
+.cols{display:flex;flex-wrap:wrap;gap:.3rem 3ch}
+
+button.cmd{font:inherit;color:var(--accent);background:none;border:0;border-bottom:1px dashed var(--accent);padding:0;cursor:pointer;text-indent:0}
+button.cmd:hover{color:var(--prompt);border-bottom-color:var(--prompt)}
+
+.input-line{position:relative}
+#cmd{flex:1;min-width:0;font:inherit;font-size:16px;color:var(--ink);background:none;border:0;outline:0;padding:0;caret-color:var(--prompt)}
+@media (min-width:40rem){#cmd{font-size:inherit}}
+
+.chips{flex:none;display:flex;gap:.4rem;padding:.55rem .9rem;background:var(--bar);border-top:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;font:inherit;font-size:.8rem;color:var(--muted);background:var(--term);border:1px solid var(--line);border-radius:4px;padding:.3rem .6rem;cursor:pointer}
+.chips button:hover{color:var(--accent);border-color:var(--accent);background:var(--soft)}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+noscript .out{padding:1rem}
+@media (max-width:34rem){
+  body{font-size:.875rem}
+  .ps1 .host{display:none}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-
-<header class="site">
-  <div class="site-top">
-    <strong>Jean Austin Rodriguez</strong>
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">Light theme</button>
+<div class="term">
+  <div class="bar" aria-hidden="true">
+    <span class="dots"><i></i><i></i><i></i></span>
+    <span class="title">visitor@jean-rodriguez: ~</span>
+    <span class="spacer"></span>
   </div>
-  <nav aria-label="Main">
-    <a href="#about">About</a>
-    <a href="#focus">Focus</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
+
+  <main class="screen" id="screen">
+    <div id="out" role="log" aria-live="polite" aria-label="Terminal output"></div>
+
+    <noscript>
+      <div class="out">
+        <h1>Jean Austin Rodriguez</h1>
+        <p>Senior IT Officer and Data Protection Officer · Manama, Bahrain</p>
+        <p>I lead innovation and the responsible use of data and technology at Euro University of Bahrain, with 20+ years of experience in infrastructure, security and teams that deliver.</p>
+        <p class="muted">This page is an interactive terminal and needs JavaScript. You can still reach me here:</p>
+        <p><a href="https://www.linkedin.com/in/jadrodriguez" rel="noopener">LinkedIn</a> · <a href="mailto:jadrodriguez@outlook.com">Email</a> · <a href="https://about.me/jadrodriguez" rel="noopener">About.me</a></p>
+      </div>
+    </noscript>
+
+    <form class="line input-line" id="form" autocomplete="off">
+      <label class="ps1" for="cmd"><span class="host">visitor@jean:</span><span class="path">~</span><span class="sym">$</span><span class="sr-only"> Type a command</span></label>
+      <input id="cmd" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-describedby="hint">
+      <span id="hint" class="sr-only">Type help and press Enter to list commands. Tab completes, up and down arrows browse history.</span>
+    </form>
+  </main>
+
+  <nav class="chips" aria-label="Quick commands">
+    <button type="button" data-cmd="help">help</button>
+    <button type="button" data-cmd="about">about</button>
+    <button type="button" data-cmd="focus">focus</button>
+    <button type="button" data-cmd="experience">experience</button>
+    <button type="button" data-cmd="education">education</button>
+    <button type="button" data-cmd="contact">contact</button>
+    <button type="button" data-cmd="clear">clear</button>
   </nav>
-</header>
-
-<main>
-<div class="hero">
-  <p class="role">Senior IT Officer and Data Protection Officer · Manama, Bahrain</p>
-  <h1>Jean Austin<br>Rodriguez</h1>
-  <p class="lede">I lead innovation and the responsible use of data and technology at Euro University of Bahrain, with 20+ years of experience in infrastructure, security and teams that deliver.</p>
-  <div class="btns">
-    <a class="btn primary" href="https://www.linkedin.com/in/jadrodriguez" rel="noopener">View LinkedIn profile</a>
-    <a class="btn" href="#contact">Get in touch</a>
-  </div>
 </div>
 
-<section id="about">
-  <h2>About</h2>
-  <p>I'm a technology leader focused on digital transformation and high-impact infrastructure, with a track record of building high-performing teams in higher education. I started in technical support in 2004 and have since worked across universities, telecoms, consulting, manufacturing and research.</p>
-  <p>Today I own IT service delivery at Euro University of Bahrain, advise executive leadership on IT investment, and act as the university's Data Protection Officer. I also build AI tools that help leaders make decisions and help the admissions team reach students.</p>
-</section>
-
-<section id="focus">
-  <h2>What I focus on</h2>
-  <div class="focus">
-    <div>
-      <h3>IT governance and service delivery</h3>
-      <p>Campus-wide platforms (LMS, E-Library, information systems), policies, and uptime that faculty and students can rely on.</p>
-    </div>
-    <div>
-      <h3>Data protection</h3>
-      <p>Governance aligned with international standards and Bahrain PDPL, with privacy safeguards across SharePoint, OneDrive and the cloud.</p>
-    </div>
-    <div>
-      <h3>Applied AI</h3>
-      <p>RAG-based agents, chatbots and BI dashboards built on real institutional data. Interests include fine tuning and Model Context Protocol (MCP).</p>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <h2>Experience</h2>
-  <ol class="timeline">
-    <li class="now">
-      <p class="when">September 2022 – Present</p>
-      <h3>Senior IT Officer, Euro University of Bahrain</h3>
-      <p class="place">Manama, Bahrain</p>
-      <details>
-        <summary><span class="closed-label">View 7 highlights</span><span class="open-label">Hide highlights</span></summary>
-        <ul>
-        <li>Own end-to-end IT service delivery, driving toward 99.9% uptime for mission-critical academic platforms.</li>
-        <li>Advise executive leadership on IT investment roadmaps for scalability and long-term sustainability.</li>
-        <li>Build IT governance frameworks, compliance policies and procedures for campus infrastructure.</li>
-        <li>Serve as Data Protection Officer: modernize network and cybersecurity protocols, develop data governance frameworks, and roll out privacy safeguards across SharePoint, OneDrive and cloud environments.</li>
-        <li>Built a custom RAG-based AI agent (Insight Engine) that connects LLMs to SharePoint for executive decision-making.</li>
-        <li>Develop an AI-powered student recruitment chatbot and BI dashboards for senior stakeholders.</li>
-        <li>Mentor student interns on security hardening, lab readiness and the student digital experience.</li>
-        </ul>
-      </details>
-    </li>
-    <li>
-      <p class="when">2021 – 2022</p>
-      <h3>IT Consultant, Kalaam Telecom Group</h3>
-      <p class="place">Seef, Bahrain</p>
-      <details>
-        <summary><span class="closed-label">View 4 highlights</span><span class="open-label">Hide highlights</span></summary>
-        <ul>
-        <li>Led network security and hybrid infrastructure upgrades that enabled a successful ISO 27001 re-certification.</li>
-        <li>Migrated the company to Azure Active Directory and Microsoft 365.</li>
-        <li>Deployed Microsoft EMS and mandatory MFA across the enterprise.</li>
-        <li>Upgraded Veeam servers and configured Voice VLANs, reducing downtime; kept core services at 99.9% uptime.</li>
-        </ul>
-      </details>
-    </li>
-    <li>
-      <p class="when">2018 – 2019</p>
-      <h3>System Administrator, Gulf University</h3>
-      <p class="place">Bahrain</p>
-      <details>
-        <summary><span class="closed-label">View 5 highlights</span><span class="open-label">Hide highlights</span></summary>
-        <ul>
-        <li>Drove the university's digital transformation, including the move to Microsoft 365 and Azure.</li>
-        <li>Modernized classrooms, student information systems and library management platforms.</li>
-        <li>Enforced IT security policies and backup protocols for critical student and staff databases.</li>
-        <li>Led a technical team and standardized support workflows and documentation.</li>
-        <li>Delivered HR biometrics, international journal website upgrades and automated exam scheduling.</li>
-        </ul>
-      </details>
-    </li>
-  </ol>
-
-  <details>
-    <summary>Earlier roles (2004 – 2021)</summary>
-    <ol class="timeline earlier">
-      <li>
-        <p class="when">2021</p>
-        <h3>IT Consultant, Majid Al Futtaim</h3>
-        <p>Technical advisory for enterprise clients, data center and network performance.</p>
-      </li>
-      <li>
-        <p class="when">2019 – 2021</p>
-        <h3>IT Consultant, AVASO Technology Solutions</h3>
-        <p>Turned infrastructure requirements into project roadmaps and data-driven recommendations for enterprise clients.</p>
-      </li>
-      <li>
-        <p class="when">2014 – 2017</p>
-        <h3>IT Consultant, New York Life Insurance Company (Philippines)</h3>
-        <p>Data center virtualization, database upgrades and disaster recovery; led migrations and mentored engineering and help-desk teams.</p>
-      </li>
-      <li>
-        <p class="when">2010 – 2014</p>
-        <h3>System Administrator, Toyota Motor Philippines Corporation</h3>
-        <p>Santa Rosa City, Philippines.</p>
-      </li>
-      <li>
-        <p class="when">2007 – 2010</p>
-        <h3>System Administrator, International Rice Research Institute</h3>
-        <p>Ran core infrastructure, backups and the help desk; led deployment of 2,000+ computers.</p>
-      </li>
-      <li>
-        <p class="when">2005 – 2007</p>
-        <h3>Production Planner, Fujitsu Ten Corporation of the Philippines</h3>
-        <p>Maintained bills of materials and served as an Internal Quality Auditor.</p>
-      </li>
-      <li>
-        <p class="when">2004</p>
-        <h3>Technical Support Representative, TeleTech</h3>
-        <p>First-level support for US telecommunications clients.</p>
-      </li>
-    </ol>
-  </details>
-</section>
-
-<section id="education">
-  <h2>Education &amp; credentials</h2>
-  <div class="facts">
-    <div>
-      <h3>Education</h3>
-      <p>B.S. in Information Technology, Computer Science<br>Colegio de San Juan de Letran Calamba, 2000 – 2004</p>
-      <h3>Languages</h3>
-      <p>Filipino (native or bilingual)<br>English (full professional)</p>
-    </div>
-    <div>
-      <h3>Certifications</h3>
-      <ul>
-        <li>VMware Certified Associate – Data Center</li>
-        <li>VMware Certified Associate – Cloud</li>
-        <li>CloudU</li>
-        <li>Google Prompting Essentials</li>
-        <li>Google Ads for Beginners</li>
-      </ul>
-      <h3 style="margin-top:1rem">Honors</h3>
-      <p>Eagle Scout</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="contact">
-    <p>The quickest way to reach me is LinkedIn or email.</p>
-    <p class="contact-links">
-      <a href="https://www.linkedin.com/in/jadrodriguez" rel="noopener">LinkedIn</a>
-      <a href="mailto:jadrodriguez@outlook.com">Email Jean</a>
-      <a href="https://about.me/jadrodriguez" rel="noopener">About.me</a>
-    </p>
-  </div>
-</section>
-</main>
-
-<footer>
-  <span id="yr"></span> Jean Austin Rodriguez · Manama, Bahrain
-</footer>
-
-</div>
 <script>
-const themeToggle=document.getElementById("theme-toggle");
-const preferredTheme=()=>window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";
-const updateThemeButton=()=>{const currentTheme=document.documentElement.dataset.theme||preferredTheme();const nextTheme=currentTheme==="dark"?"light":"dark";themeToggle.textContent=`Use ${nextTheme} theme`;themeToggle.setAttribute("aria-label",`Switch to ${nextTheme} theme`)};
-themeToggle.addEventListener("click",()=>{const currentTheme=document.documentElement.dataset.theme||preferredTheme();document.documentElement.dataset.theme=currentTheme==="dark"?"light":"dark";updateThemeButton()});
-updateThemeButton();
-document.getElementById("yr").textContent="© "+new Date().getFullYear();
+(() => {
+"use strict";
+
+/* ---------- content ---------- */
+const LINKS = {
+  linkedin: "https://www.linkedin.com/in/jadrodriguez",
+  email: "mailto:jadrodriguez@outlook.com",
+  aboutme: "https://about.me/jadrodriguez"
+};
+
+const JOBS = [
+  { when: "September 2022 – Present", title: "Senior IT Officer", org: "Euro University of Bahrain", place: "Manama, Bahrain", items: [
+    "Own end-to-end IT service delivery, driving toward 99.9% uptime for mission-critical academic platforms.",
+    "Advise executive leadership on IT investment roadmaps for scalability and long-term sustainability.",
+    "Build IT governance frameworks, compliance policies and procedures for campus infrastructure.",
+    "Serve as Data Protection Officer: modernize network and cybersecurity protocols, develop data governance frameworks, and roll out privacy safeguards across SharePoint, OneDrive and cloud environments.",
+    "Built a custom RAG-based AI agent (Insight Engine) that connects LLMs to SharePoint for executive decision-making.",
+    "Develop an AI-powered student recruitment chatbot and BI dashboards for senior stakeholders.",
+    "Mentor student interns on security hardening, lab readiness and the student digital experience."
+  ]},
+  { when: "2021 – 2022", title: "IT Consultant", org: "Kalaam Telecom Group", place: "Seef, Bahrain", items: [
+    "Led network security and hybrid infrastructure upgrades that enabled a successful ISO 27001 re-certification.",
+    "Migrated the company to Azure Active Directory and Microsoft 365.",
+    "Deployed Microsoft EMS and mandatory MFA across the enterprise.",
+    "Upgraded Veeam servers and configured Voice VLANs, reducing downtime; kept core services at 99.9% uptime."
+  ]},
+  { when: "2018 – 2019", title: "System Administrator", org: "Gulf University", place: "Bahrain", items: [
+    "Drove the university's digital transformation, including the move to Microsoft 365 and Azure.",
+    "Modernized classrooms, student information systems and library management platforms.",
+    "Enforced IT security policies and backup protocols for critical student and staff databases.",
+    "Led a technical team and standardized support workflows and documentation.",
+    "Delivered HR biometrics, international journal website upgrades and automated exam scheduling."
+  ]}
+];
+
+const EARLIER = [
+  ["2021", "IT Consultant, Majid Al Futtaim", "Technical advisory for enterprise clients, data center and network performance."],
+  ["2019 – 2021", "IT Consultant, AVASO Technology Solutions", "Turned infrastructure requirements into project roadmaps and data-driven recommendations for enterprise clients."],
+  ["2014 – 2017", "IT Consultant, New York Life Insurance Company (Philippines)", "Data center virtualization, database upgrades and disaster recovery; led migrations and mentored engineering and help-desk teams."],
+  ["2010 – 2014", "System Administrator, Toyota Motor Philippines Corporation", "Santa Rosa City, Philippines."],
+  ["2007 – 2010", "System Administrator, International Rice Research Institute", "Ran core infrastructure, backups and the help desk; led deployment of 2,000+ computers."],
+  ["2005 – 2007", "Production Planner, Fujitsu Ten Corporation of the Philippines", "Maintained bills of materials and served as an Internal Quality Auditor."],
+  ["2004", "Technical Support Representative, TeleTech", "First-level support for US telecommunications clients."]
+];
+
+/* ---------- helpers ---------- */
+const run = c => `<button type="button" class="cmd" data-cmd="${c}">${c}</button>`;
+const ext = (href, text) => `<a href="${href}" rel="noopener"${href.startsWith("http") ? ' target="_blank"' : ""}>${text}</a>`;
+const list = items => `<ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>`;
+
+const jobHtml = (j, i, open) => `
+  <div class="job${i === 0 ? " now" : ""}">
+    <p class="muted">[${i + 1}] ${j.when}</p>
+    <h3>${j.title}, ${j.org}</h3>
+    <p class="muted">${j.place}</p>
+    ${open ? list(j.items) : `<p>${run("experience " + (i + 1))} <span class="muted">→ ${j.items.length} highlights</span></p>`}
+  </div>`;
+
+/* ---------- commands ---------- */
+const HELP = [
+  ["whoami", "Who this is, in one line"],
+  ["about", "Short bio"],
+  ["focus", "What I focus on"],
+  ["experience", "Recent roles (add a number or --all for highlights)"],
+  ["earlier", "Earlier roles, 2004 – 2021"],
+  ["education", "Education, certifications, languages"],
+  ["contact", "How to reach me"],
+  ["open &lt;name&gt;", "Open linkedin, email or aboutme"],
+  ["ls / cat", "Browse the same content as files"],
+  ["history", "Commands you have run"],
+  ["clear", "Clear the screen (Ctrl+L)"]
+];
+
+const FILES = {
+  "about.txt": "about", "focus.txt": "focus", "experience.log": "experience --all",
+  "earlier-roles.log": "earlier", "education.txt": "education", "contact.txt": "contact"
+};
+
+const commands = {
+  help: () => `
+    <h2>Available commands</h2>
+    <dl class="grid">${HELP.map(([c, d]) => `<dt>${c.includes("&") || c.includes("/") ? c : run(c)}</dt><dd>${d}</dd>`).join("")}</dl>
+    <p class="muted">Tab completes · ↑/↓ recall history · click or tap any underlined command to run it.</p>`,
+
+  whoami: () => `
+    <h1>Jean Austin Rodriguez</h1>
+    <p>Senior IT Officer and Data Protection Officer · Manama, Bahrain</p>
+    <p class="muted">I lead innovation and the responsible use of data and technology at Euro University of Bahrain, with 20+ years of experience in infrastructure, security and teams that deliver.</p>`,
+
+  about: () => `
+    <h2>About</h2>
+    <p>I'm a technology leader focused on digital transformation and high-impact infrastructure, with a track record of building high-performing teams in higher education. I started in technical support in 2004 and have since worked across universities, telecoms, consulting, manufacturing and research.</p>
+    <p>Today I own IT service delivery at Euro University of Bahrain, advise executive leadership on IT investment, and act as the university's Data Protection Officer. I also build AI tools that help leaders make decisions and help the admissions team reach students.</p>
+    <p class="muted">Next: ${run("focus")} or ${run("experience")}</p>`,
+
+  focus: () => `
+    <h2>What I focus on</h2>
+    <h3>IT governance and service delivery</h3>
+    <p class="muted">Campus-wide platforms (LMS, E-Library, information systems), policies, and uptime that faculty and students can rely on.</p>
+    <h3>Data protection</h3>
+    <p class="muted">Governance aligned with international standards and Bahrain PDPL, with privacy safeguards across SharePoint, OneDrive and the cloud.</p>
+    <h3>Applied AI</h3>
+    <p class="muted">RAG-based agents, chatbots and BI dashboards built on real institutional data. Interests include fine tuning and Model Context Protocol (MCP).</p>`,
+
+  experience: args => {
+    const a = args[0];
+    if (a === undefined) {
+      return `<h2>Experience</h2>${JOBS.map((j, i) => jobHtml(j, i, false)).join("")}
+        <p class="muted">Show everything: ${run("experience --all")} · Before 2021: ${run("earlier")}</p>`;
+    }
+    if (a === "--all" || a === "-a") {
+      return `<h2>Experience</h2>${JOBS.map((j, i) => jobHtml(j, i, true)).join("")}
+        <p class="muted">Before 2021: ${run("earlier")}</p>`;
+    }
+    const n = Number(a);
+    if (Number.isInteger(n) && n >= 1 && n <= JOBS.length) return jobHtml(JOBS[n - 1], n - 1, true);
+    return `<p class="err">experience: expected a number from 1 to ${JOBS.length}, or --all</p>`;
+  },
+
+  earlier: () => `
+    <h2>Earlier roles (2004 – 2021)</h2>
+    ${EARLIER.map(([when, title, note]) => `<div class="job"><p class="muted">${when}</p><h3>${title}</h3><p class="muted">${note}</p></div>`).join("")}`,
+
+  education: () => `
+    <h2>Education &amp; credentials</h2>
+    <h3>Education</h3>
+    <p class="muted">B.S. in Information Technology, Computer Science<br>Colegio de San Juan de Letran Calamba, 2000 – 2004</p>
+    <h3>Certifications</h3>
+    ${list(["VMware Certified Associate – Data Center", "VMware Certified Associate – Cloud", "CloudU", "Google Prompting Essentials", "Google Ads for Beginners"])}
+    <h3>Languages</h3>
+    <p class="muted">Filipino (native or bilingual)<br>English (full professional)</p>
+    <h3>Honors</h3>
+    <p class="muted">Eagle Scout</p>`,
+
+  contact: () => `
+    <h2>Contact</h2>
+    <p>The quickest way to reach me is LinkedIn or email.</p>
+    <dl class="grid">
+      <dt>linkedin</dt><dd>${ext(LINKS.linkedin, "linkedin.com/in/jadrodriguez")}</dd>
+      <dt>email</dt><dd>${ext(LINKS.email, "jadrodriguez@outlook.com")}</dd>
+      <dt>aboutme</dt><dd>${ext(LINKS.aboutme, "about.me/jadrodriguez")}</dd>
+    </dl>`,
+
+  open: args => {
+    const key = (args[0] || "").toLowerCase().replace(/[^a-z]/g, "");
+    const href = LINKS[key];
+    if (!href) return `<p class="err">open: choose one of linkedin, email, aboutme</p>`;
+    if (href.startsWith("mailto:")) location.href = href;
+    else window.open(href, "_blank", "noopener");
+    return `<p>Opening ${key}… <span class="muted">If nothing happened:</span> ${ext(href, href.replace(/^mailto:|^https:\/\//, ""))}</p>`;
+  },
+
+  ls: () => `<div class="cols">${Object.keys(FILES).map(f => run("cat " + f)).join("")}</div>`,
+
+  cat: args => {
+    if (!args[0]) return `<p class="err">cat: missing file name. Try ${run("ls")}</p>`;
+    const target = FILES[args[0].toLowerCase().replace(/^\.\//, "")];
+    if (!target) return `<p class="err">cat: ${escapeHtml(args[0])}: No such file. Try ${run("ls")}</p>`;
+    const [name, ...rest] = target.split(" ");
+    return commands[name](rest);
+  },
+
+  history: () => history.length
+    ? `<dl class="grid">${history.map((h, i) => `<dt class="muted">${i + 1}</dt><dd>${escapeHtml(h)}</dd>`).join("")}</dl>`
+    : `<p class="muted">No commands yet.</p>`,
+
+  date: () => `<p>${new Date().toString()}</p>`,
+  pwd: () => `<p>/home/visitor</p>`,
+  echo: args => `<p>${escapeHtml(args.join(" "))}</p>`,
+  sudo: () => `<p class="warn">visitor is not in the sudoers file. This incident will be reported to the Data Protection Officer.</p>`,
+  exit: () => `<p class="muted">There is no escape, but thanks for visiting. Try ${run("contact")} before you go.</p>`,
+  clear: () => { out.replaceChildren(); return null; }
+};
+const ALIASES = { "?": "help", man: "help", bio: "about", work: "experience", exp: "experience", jobs: "experience",
+  edu: "education", certs: "education", email: "contact", linkedin: "contact", cls: "clear", dir: "ls", ll: "ls" };
+const VISIBLE = ["help", "whoami", "about", "focus", "experience", "earlier", "education", "contact", "open", "ls", "cat", "history", "clear"];
+
+/* ---------- terminal ---------- */
+const out = document.getElementById("out");
+const screen = document.getElementById("screen");
+const form = document.getElementById("form");
+const input = document.getElementById("cmd");
+const ps1 = form.querySelector(".ps1");
+const history = [];
+let hIndex = 0, draft = "";
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function exec(raw, { record = true } = {}) {
+  const text = raw.trim();
+  const entry = document.createElement("div");
+  entry.className = "entry";
+
+  const line = document.createElement("div");
+  line.className = "line";
+  const p = document.createElement("span");
+  p.className = "ps1";
+  p.innerHTML = ps1.innerHTML.replace(/<span class="sr-only">.*?<\/span>/, "");
+  const typed = document.createElement("span");
+  typed.className = "typed";
+  typed.textContent = text;
+  line.append(p, typed);
+  entry.append(line);
+
+  let html = "";
+  if (text) {
+    if (record && history[history.length - 1] !== text) history.push(text);
+    hIndex = history.length;
+    const [first, ...args] = text.split(/\s+/);
+    const name = ALIASES[first.toLowerCase()] || first.toLowerCase();
+    if (Object.hasOwn(commands, name)) {
+      html = commands[name](args);
+      if (html === null) return;            // clear
+    } else {
+      const guess = VISIBLE.find(c => c.startsWith(name.slice(0, 2)));
+      html = `<p class="err">${escapeHtml(first)}: command not found</p>
+        <p class="muted">${guess ? `Did you mean ${run(guess)}? ` : ""}Type ${run("help")} to list commands.</p>`;
+    }
+  }
+  if (html) {
+    const body = document.createElement("div");
+    body.className = "out";
+    body.innerHTML = html;
+    entry.append(body);
+  }
+  out.append(entry);
+  entry.scrollIntoView({ block: "start" });
+}
+
+function complete() {
+  const value = input.value;
+  const parts = value.split(/\s+/);
+  let pool, stem, prefix;
+  if (parts.length <= 1) { pool = VISIBLE; stem = parts[0] || ""; prefix = ""; }
+  else {
+    const head = parts[0].toLowerCase();
+    pool = head === "cat" ? Object.keys(FILES)
+         : head === "open" ? Object.keys(LINKS)
+         : ["experience", "exp", "work", "jobs"].includes(head) ? ["--all", ...JOBS.map((_, i) => String(i + 1))]
+         : [];
+    stem = parts[parts.length - 1];
+    prefix = parts.slice(0, -1).join(" ") + " ";
+  }
+  const hits = pool.filter(c => c.startsWith(stem.toLowerCase()));
+  if (hits.length === 1) input.value = prefix + hits[0] + (prefix ? "" : " ");
+  else if (hits.length > 1) {
+    let common = hits[0];
+    for (const h of hits) while (!h.startsWith(common)) common = common.slice(0, -1);
+    if (common.length > stem.length) input.value = prefix + common;
+    else {
+      const hint = document.createElement("div");
+      hint.className = "entry muted";
+      hint.textContent = hits.join("   ");
+      out.append(hint);
+      form.scrollIntoView({ block: "end" });
+    }
+  }
+}
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  if (input.readOnly) return;
+  const v = input.value;
+  input.value = "";
+  exec(v);
+});
+
+input.addEventListener("keydown", e => {
+  if (e.key === "Tab" && input.value.trim()) { e.preventDefault(); complete(); }
+  else if (e.key === "ArrowUp") {
+    if (!history.length) return;
+    e.preventDefault();
+    if (hIndex === history.length) draft = input.value;
+    hIndex = Math.max(0, hIndex - 1);
+    input.value = history[hIndex];
+  } else if (e.key === "ArrowDown") {
+    if (hIndex >= history.length) return;
+    e.preventDefault();
+    hIndex += 1;
+    input.value = hIndex === history.length ? draft : history[hIndex];
+  } else if (e.key.toLowerCase() === "l" && e.ctrlKey) { e.preventDefault(); commands.clear(); }
+  else if (e.key.toLowerCase() === "c" && e.ctrlKey && !String(getSelection())) {
+    e.preventDefault();
+    const v = input.value; input.value = "";
+    exec(v + "^C", { record: false }); out.lastElementChild.querySelector(".out")?.remove();
+  }
+});
+
+// Click or tap an underlined command, or a chip, to run it.
+document.addEventListener("click", e => {
+  const btn = e.target.closest("[data-cmd]");
+  if (btn) {
+    if (input.readOnly) return;
+    exec(btn.dataset.cmd);
+    if (matchMedia("(hover:hover)").matches) input.focus({ preventScroll: true });
+    return;
+  }
+  // Clicking empty terminal space focuses the prompt, without breaking text selection.
+  if (e.target.closest(".screen") && !e.target.closest("a,button,input") && !String(getSelection())) {
+    input.focus({ preventScroll: true });
+  }
+});
+
+/* ---------- boot ---------- */
+const HASH = { about: "about", focus: "focus", experience: "experience", education: "education", contact: "contact" };
+
+async function boot() {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const greet = document.createElement("div");
+  greet.className = "entry muted";
+  greet.textContent = `Last login: ${new Date().toDateString()} · © ${new Date().getFullYear()} Jean Austin Rodriguez`;
+  out.append(greet);
+
+  if (!reduce) {
+    input.readOnly = true;
+    for (const ch of "whoami") {
+      input.value += ch;
+      await new Promise(r => setTimeout(r, 70));
+    }
+    await new Promise(r => setTimeout(r, 200));
+    input.value = "";
+    input.readOnly = false;
+  }
+  exec("whoami", { record: false });
+
+  const tip = document.createElement("div");
+  tip.className = "entry";
+  tip.innerHTML = `<span class="muted">Type</span> ${run("help")} <span class="muted">to see what you can ask, or jump to</span> ${run("about")}, ${run("experience")}, ${run("contact")}.`;
+  out.append(tip);
+
+  const deep = HASH[location.hash.slice(1).toLowerCase()];
+  if (deep) exec(deep, { record: false });
+  else screen.scrollTop = 0;
+
+  if (matchMedia("(hover:hover)").matches) input.focus({ preventScroll: true });
+}
+boot();
+})();
 </script>
 </body>
 </html>
