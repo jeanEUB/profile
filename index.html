@@ -16,6 +16,7 @@
   --bg:#070C0E; --term:#0D1518; --bar:#142024; --ink:#D5E4DF; --muted:#8AA09B; --line:#22343A;
   --accent:#70D2C1; --prompt:#9BE28A; --warn:#E8C06A; --err:#F08A7B; --soft:#16292B;
   --shadow:0 24px 70px rgba(0,0,0,.55);
+  --window-shadow-color:0,0,0;
   --mono:"JetBrains Mono",ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
 }
 /* Themes: the default above is "midnight". Add a block here and a row in THEMES (script) to add another. */
@@ -26,20 +27,31 @@
 :root[data-theme="tokyo-night"]{--bg:#101014;--term:#1A1B26;--bar:#16161E;--ink:#C0CAF5;--muted:#9AA5CE;--line:#3B4261;--accent:#7AA2F7;--prompt:#9ECE6A;--warn:#E0AF68;--err:#F7768E;--soft:#292E42}
 :root[data-theme="vscode"]{--bg:#121212;--term:#1E1E1E;--bar:#252526;--ink:#D4D4D4;--muted:#9D9D9D;--line:#3C3C3C;--accent:#569CD6;--prompt:#4EC9B0;--warn:#DCDCAA;--err:#F48771;--soft:#2A2D2E}
 :root[data-theme="matrix"]{--bg:#030803;--term:#000000;--bar:#0A140A;--ink:#28FE14;--muted:#1FB312;--line:#145A0E;--accent:#B6FFAE;--prompt:#28FE14;--warn:#E5E500;--err:#FF5F56;--soft:#0B1F0A}
-:root[data-theme="solarized-light"]{color-scheme:light;--bg:#E4DDC8;--term:#FDF6E3;--bar:#EEE8D5;--ink:#405B63;--muted:#5F757D;--line:#D3CBB7;--accent:#1A6FB0;--prompt:#5F7000;--warn:#8A6800;--err:#C9302C;--soft:#EEE8D5;--shadow:0 24px 70px rgba(70,60,30,.22)}
-:root[data-theme="github-light"]{color-scheme:light;--bg:#EAEEF2;--term:#FFFFFF;--bar:#F6F8FA;--ink:#1F2328;--muted:#59636E;--line:#D1D9E0;--accent:#0969DA;--prompt:#1A7F37;--warn:#9A6700;--err:#CF222E;--soft:#DDF4FF;--shadow:0 24px 70px rgba(31,35,40,.18)}
+:root[data-theme="solarized-light"]{color-scheme:light;--bg:#E4DDC8;--term:#FDF6E3;--bar:#EEE8D5;--ink:#405B63;--muted:#5F757D;--line:#D3CBB7;--accent:#1A6FB0;--prompt:#5F7000;--warn:#8A6800;--err:#C9302C;--soft:#EEE8D5;--window-shadow-color:70,60,30;--shadow:0 24px 70px rgba(70,60,30,.22)}
+:root[data-theme="github-light"]{color-scheme:light;--bg:#EAEEF2;--term:#FFFFFF;--bar:#F6F8FA;--ink:#1F2328;--muted:#59636E;--line:#D1D9E0;--accent:#0969DA;--prompt:#1A7F37;--warn:#9A6700;--err:#CF222E;--soft:#DDF4FF;--window-shadow-color:31,35,40;--shadow:0 24px 70px rgba(31,35,40,.18)}
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;display:grid;place-items:center;height:100vh;height:100dvh;padding:clamp(1rem,7vh,4.5rem) clamp(1rem,6vw,5rem);background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:.95rem;line-height:1.6}
 a{color:var(--accent);text-underline-offset:3px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
 
-.term{display:flex;flex-direction:column;width:100%;max-width:60rem;height:100%;max-height:46rem;overflow:hidden;background:var(--term);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}
+.term{display:flex;flex-direction:column;width:100%;max-width:60rem;height:100%;max-height:46rem;overflow:hidden;background:var(--term);border:1px solid var(--line);border-radius:10px;box-shadow:4px 4px 6px rgba(var(--window-shadow-color),.28),12px 16px 24px -6px rgba(var(--window-shadow-color),.3),24px 32px 60px -12px rgba(var(--window-shadow-color),.25),inset 0 1px 0 rgba(255,255,255,.06)}
 .bar{flex:none;display:flex;align-items:center;gap:.75rem;padding:.6rem .9rem;background:var(--bar);border-bottom:1px solid var(--line);color:var(--muted);font-size:.8rem}
-.dots{display:flex;gap:.4rem}
-.dots i{width:.7rem;height:.7rem;border-radius:50%;background:#F08A7B}
-.dots i:nth-child(2){background:#E8C06A}
-.dots i:nth-child(3){background:#9BE28A}
+[hidden]{display:none!important}
+.term.is-maximized{position:fixed;inset:10px;width:calc(100% - 20px);height:calc(100% - 20px);max-width:none;max-height:none}
+.dots{display:flex;flex:none;gap:.15rem}
+.window-control{display:grid;place-items:center;width:1.5rem;height:1.5rem;padding:0;border:0;background:transparent;cursor:pointer}
+.window-control span{display:grid;place-items:center;width:.85rem;height:.85rem;border-radius:50%;background:#F08A7B;color:#182020;font:bold .7rem/1 var(--mono)}
+.window-control:nth-child(2) span{background:#E8C06A}
+.window-control:nth-child(3) span{background:#9BE28A}
+.window-control:hover span{filter:brightness(1.2)}
+.minimized-bar{position:fixed;bottom:5%;left:10%;width:80%;max-width:24rem;display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1px solid var(--line);border-radius:8px;background:var(--bar);color:var(--ink);box-shadow:var(--shadow);font:inherit;cursor:pointer}
+.minimized-bar .title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.minimized-bar .restore-label{margin-left:auto;color:var(--accent);font-size:.8rem}
+.minimized-bar:hover{border-color:var(--accent)}
+.window-message{max-width:32rem;text-align:center;color:var(--muted)}
+.window-message p{margin:0 0 1rem}
+.window-message button{padding:.5rem 1rem;border:1px solid var(--accent);border-radius:4px;background:var(--bar);color:var(--accent);font:inherit;cursor:pointer}
 .bar .title{flex:1;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .bar select{flex:none;max-width:9.5rem;font:inherit;font-size:.75rem;color:var(--muted);background:var(--term);border:1px solid var(--line);border-radius:4px;padding:.15rem .3rem;cursor:pointer}
 .bar select:hover{color:var(--accent);border-color:var(--accent)}
@@ -95,9 +107,13 @@ noscript .out{padding:1rem}
 </style>
 </head>
 <body>
-<div class="term">
+<div class="term" id="terminal">
   <div class="bar">
-    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <div class="dots" role="group" aria-label="Window controls">
+      <button class="window-control" id="close-window" type="button" aria-label="Close window" title="Close window" aria-controls="terminal"><span aria-hidden="true"></span></button>
+      <button class="window-control" id="minimize-window" type="button" aria-label="Minimize window" title="Minimize window" aria-controls="terminal"><span aria-hidden="true"></span></button>
+      <button class="window-control" id="maximize-window" type="button" aria-label="Maximize window" title="Maximize window" aria-controls="terminal" aria-pressed="false"><span aria-hidden="true"></span></button>
+    </div>
     <span class="title" aria-hidden="true">visitor@jean-rodriguez: ~</span>
     <label class="sr-only" for="theme">Theme</label>
     <select id="theme"></select>
@@ -134,6 +150,14 @@ noscript .out{padding:1rem}
     <button type="button" data-cmd="contact">contact</button>
     <button type="button" data-cmd="clear">clear</button>
   </nav>
+</div>
+
+<button class="minimized-bar" id="minimized-window" type="button" aria-label="Restore terminal window" aria-controls="terminal" hidden>
+  <span aria-hidden="true">▣</span><span class="title">visitor@jean-rodriguez: ~</span><span class="restore-label">Restore</span>
+</button>
+<div class="window-message" id="closed-window" hidden>
+  <p id="window-status" role="status" aria-live="polite"></p>
+  <button id="reopen-window" type="button" aria-controls="terminal">Reopen now</button>
 </div>
 
 <script>
@@ -495,6 +519,54 @@ document.addEventListener("click", e => {
   }
 });
 
+/* ---------- window controls ---------- */
+const terminal = document.getElementById("terminal");
+const closeButton = document.getElementById("close-window");
+const minimizeButton = document.getElementById("minimize-window");
+const maximizeButton = document.getElementById("maximize-window");
+const minimizedBar = document.getElementById("minimized-window");
+const closedMessage = document.getElementById("closed-window");
+const windowStatus = document.getElementById("window-status");
+const reopenButton = document.getElementById("reopen-window");
+let reopenTimer;
+let restoreFocus = closeButton;
+
+function restoreWindow() {
+  clearTimeout(reopenTimer);
+  minimizedBar.hidden = true;
+  closedMessage.hidden = true;
+  windowStatus.textContent = "";
+  terminal.hidden = false;
+  restoreFocus.focus({ preventScroll: true });
+}
+
+closeButton.addEventListener("click", () => {
+  restoreFocus = closeButton;
+  terminal.hidden = true;
+  closedMessage.hidden = false;
+  windowStatus.textContent = "Window closed. Thanks for visiting! Reopening in 3 seconds…";
+  reopenButton.focus({ preventScroll: true });
+  clearTimeout(reopenTimer);
+  reopenTimer = setTimeout(restoreWindow, 3000);
+});
+
+minimizeButton.addEventListener("click", () => {
+  restoreFocus = minimizeButton;
+  terminal.hidden = true;
+  minimizedBar.hidden = false;
+  minimizedBar.focus({ preventScroll: true });
+});
+minimizedBar.addEventListener("click", restoreWindow);
+reopenButton.addEventListener("click", restoreWindow);
+
+maximizeButton.addEventListener("click", () => {
+  const maximized = terminal.classList.toggle("is-maximized");
+  const label = maximized ? "Restore window size" : "Maximize window";
+  maximizeButton.setAttribute("aria-pressed", String(maximized));
+  maximizeButton.setAttribute("aria-label", label);
+  maximizeButton.title = label;
+});
+
 /* ---------- boot ---------- */
 const HASH = { themes: "theme", opensource: "opensource", about: "about", focus: "focus", experience: "experience", education: "education", contact: "contact" };
 
@@ -526,7 +598,7 @@ async function boot() {
   if (deep) exec(deep, { record: false });
   else screen.scrollTop = 0;
 
-  if (matchMedia("(hover:hover)").matches) input.focus({ preventScroll: true });
+  if (!terminal.hidden && matchMedia("(hover:hover)").matches) input.focus({ preventScroll: true });
 }
 boot();
 })();
