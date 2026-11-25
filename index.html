@@ -345,7 +345,7 @@ const commands = {
 
   open: args => {
     const key = (args[0] || "").toLowerCase().replace(/[^a-z]/g, "");
-    const href = LINKS[key];
+    const href = Object.hasOwn(LINKS, key) ? LINKS[key] : undefined;
     if (!href) return `<p class="err">open: choose one of linkedin, mozilla</p>`;
     window.open(href, "_blank", "noopener");
     return `<p>Opening ${key}… <span class="muted">If nothing happened:</span> ${ext(href, href.replace(/^https:\/\/|#.*$/g, ""))}</p>`;
@@ -424,7 +424,8 @@ function exec(raw, { record = true } = {}) {
     if (record && history[history.length - 1] !== text) history.push(text);
     hIndex = history.length;
     const [first, ...args] = text.split(/\s+/);
-    const name = ALIASES[first.toLowerCase()] || first.toLowerCase();
+    const lower = first.toLowerCase();
+    const name = Object.hasOwn(ALIASES, lower) ? ALIASES[lower] : lower;
     if (Object.hasOwn(commands, name)) {
       html = commands[name](args);
       if (html === null) return;            // clear
@@ -594,7 +595,8 @@ async function boot() {
   tip.innerHTML = `<span class="muted">Type</span> ${run("help")} <span class="muted">to see what you can ask, or jump to</span> ${run("about")}, ${run("opensource")}, ${run("experience")}, ${run("contact")}.`;
   out.append(tip);
 
-  const deep = HASH[location.hash.slice(1).toLowerCase()];
+  const hashKey = location.hash.slice(1).toLowerCase();
+  const deep = Object.hasOwn(HASH, hashKey) ? HASH[hashKey] : undefined;
   if (deep) exec(deep, { record: false });
   else screen.scrollTop = 0;
 
